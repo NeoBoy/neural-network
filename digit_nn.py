@@ -23,10 +23,11 @@ mtrain = np.float(Xtrain.shape[0]) # Number of training examples
 mtest = np.float(Xtest.shape[0]) # Number of testing examples
 n = np.float(X.shape[1]) # Number of features
 Output = 10 # Output layer dimensionality - here the system is binary so we want two output layers. We could also use one, I suppose.
-Lambda = 0.01 # Regularization parameter, anything >0.26942 causes linear decision boundary and < 0.0003 causes fail max iterations
+Lambda = 0.00000001 # Regularization parameter, anything >0.26942 causes linear decision boundary and < 0.0003 causes fail max iterations
 Hidden = 10 # Number of hidden layers
 ytrain_matrix = np.eye(Output)[ytrain].reshape(mtrain,Output)
 ytest_matrix = np.eye(Output)[ytest].reshape(mtest,Output)
+maxiter = 500
 
 # Visualize the data
 def drawplot(draw):
@@ -107,7 +108,7 @@ def randtheta(L_in,L_out):
 
 theta_init = np.concatenate((randtheta(n,Hidden).reshape(((n+1)*Hidden)),randtheta(Hidden,Output).reshape(((Hidden+1)*Output))))
 
-opt = fmin_cg(cost, x0=theta_init, fprime=grad, full_output=1, disp=1, maxiter=300);
+opt = fmin_cg(cost, x0=theta_init, fprime=grad, full_output=1, disp=1, maxiter=maxiter);
 theta = opt[0]
 print "The cost is %f" %(opt[1])
 print "The accuracy is on the training set is %f" %(accuracy_score(ytrain, predict(theta,Xtrain))) # this comes from sklearn.metrics
