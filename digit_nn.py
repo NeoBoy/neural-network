@@ -25,9 +25,9 @@ ytrain_matrix = np.eye(classes)[ytrain].reshape(mtrain,classes)
 ytest_matrix = np.eye(classes)[ytest].reshape(mtest,classes)
 
 # Model parameters
-nodes = 15
-Lambda = 1
-maxiter = 300
+nodes = 10
+Lambda = 2
+maxiter = 500
 
 # Visualize the data
 def drawplot(draw):
