@@ -6,8 +6,6 @@ from sklearn.cross_validation import train_test_split
 from scipy.optimize import fmin_cg
 from sklearn.metrics import accuracy_score
 
-# import matplotlib
-
 # Load data Set
 data = scipy.io.loadmat('digits.mat')
 X = data["X"]
