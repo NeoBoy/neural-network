@@ -12,7 +12,7 @@ X = data["X"]
 y = data["y"]
 y[y==10]=0
 
-# Split th data into testing and training sets
+# Split the data into testing and training sets
 Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=0.25, random_state=0)
 
 # Data specific parameters
@@ -27,7 +27,7 @@ ytest_matrix = np.eye(classes)[ytest].reshape(mtest,classes)
 # Model parameters
 nodes = 10
 Lambda = 3
-maxiter = 300
+maxiter = 200
 
 # Visualize the data
 def drawplot(draw):
@@ -41,7 +41,7 @@ def drawplot(draw):
                 ax[i, j].set_axis_off() # Turns off the axes for all the subplots
                 ax[i,j].imshow(Xi, aspect='auto',cmap='gray')
         plt.show()
-drawplot(False)
+drawplot(True)
 
 def sigmoid(z):
     return 1.0 / (1.0 + np.exp(-1 * z))
@@ -89,7 +89,6 @@ def nn(theta):
         D2[:,1:] += (Lambda/mtrain * theta2[:,1:]) # [classes X nodes + 1] = [2X4]
 
     # Roll grads D1 and D2 into 1D array
-    #theta = np.concatenate((D1.reshape(((n+1)*nodes)),D2.reshape(((nodes+1)*classes))))
     grads = np.concatenate((D1.reshape(((n+1)*nodes)),D2.reshape(((nodes+1)*classes))))
 
     return J, grads
