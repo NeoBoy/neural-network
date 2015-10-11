@@ -6,3 +6,5 @@ nn.py is the first script I wrote, and contains a lot of detailed notes on the p
 
 digit_nn.py is the follow up script, which runs a 3 layer neural network (same as above) on the digits.mat file (which is a subset of the MNIST data, obtained from the Coursera ML course at Standford). The script notes have been greatly stripped out for simplicity, but for details on how things work you should see the nn.py original.
 
+The printer() function at the end simply grabs a random entry from the data set, feeds the features to predict() to make a prediction on the value and then draws the image, including the prediction in the title.
+

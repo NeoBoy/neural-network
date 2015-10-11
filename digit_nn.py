@@ -6,7 +6,7 @@ from sklearn.cross_validation import train_test_split
 from scipy.optimize import fmin_cg
 from sklearn.metrics import accuracy_score
 
-# Load data Set
+# Load data
 data = scipy.io.loadmat('digits.mat')
 X = data["X"]
 y = data["y"]
@@ -26,8 +26,8 @@ ytest_matrix = np.eye(classes)[ytest].reshape(mtest,classes)
 
 # Model parameters
 nodes = 10
-Lambda = 2
-maxiter = 50
+Lambda = 3
+maxiter = 300
 
 # Visualize the data
 def drawplot(draw):
