@@ -8,3 +8,5 @@ digit_nn.py is the follow up script, which runs a 3 layer neural network (same a
 
 The printer() function at the end simply grabs a random entry from the data set, feeds the features to predict() to make a prediction on the value and then draws the image, including the prediction in the title.
 
+I posted a description of the digit recognizer function on my blog: https://grantbeyleveld.wordpress.com/recognizing-handwritten-digits-using-a-neural-network-in-python/
+
