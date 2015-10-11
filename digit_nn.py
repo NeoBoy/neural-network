@@ -27,7 +27,7 @@ ytest_matrix = np.eye(classes)[ytest].reshape(mtest,classes)
 # Model parameters
 nodes = 10
 Lambda = 2
-maxiter = 500
+maxiter = 50
 
 # Visualize the data
 def drawplot(draw):
@@ -111,9 +111,17 @@ theta_init = np.concatenate((randtheta(n,nodes).reshape(((n+1)*nodes)),randtheta
 opt = fmin_cg(cost, x0=theta_init, fprime=grad, full_output=1, disp=1, maxiter=maxiter);
 theta = opt[0]
 print "The cost is %f" %(opt[1])
-print "The accuracy is on the training set is %f" %(accuracy_score(ytrain, predict(theta,Xtrain))) # this comes from sklearn.metrics
-print "The accuracy is on the testing set is %f" %(accuracy_score(ytest, predict(theta,Xtest))) # this comes from sklearn.metrics
+print "The accuracy is on the training set is %f" %(accuracy_score(ytrain, predict(theta,Xtrain)))
+print "The accuracy is on the testing set is %f" %(accuracy_score(ytest, predict(theta,Xtest)))
 
-# Lastly, this plots the decision boundary for easy understanding
-#plot(lambda x: predict(theta,x))
-#plt.title("Decision Boundary for nodes layer size 3")
+def printer():
+    idx = np.random.randint(m,size=1)
+    img_size = math.sqrt(n)
+    Xi = X[idx,:].reshape(img_size,img_size).T
+    yi = predict(theta,X[idx,:])[0]
+    plt.title('The predicted value is %i' %(yi))
+    plt.imshow(Xi, aspect='auto',cmap='gray')
+    plt.axis('off')
+    plt.show()
+
+printer()
