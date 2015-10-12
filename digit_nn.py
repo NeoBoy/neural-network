@@ -107,9 +107,9 @@ def randtheta(L_in,L_out):
 
 theta_init = np.concatenate((randtheta(n,nodes).reshape(((n+1)*nodes)),randtheta(nodes,classes).reshape(((nodes+1)*classes))))
 
-opt = fmin_cg(cost, x0=theta_init, fprime=grad, full_output=1, disp=1, maxiter=maxiter);
-theta = opt[0]
-print "The cost is %f" %(opt[1])
+model = fmin_cg(cost, x0=theta_init, fprime=grad, full_output=1, disp=1, maxiter=maxiter);
+theta = model[0]
+print "The cost is %f" %(model[1])
 print "The accuracy is on the training set is %f" %(accuracy_score(ytrain, predict(theta,Xtrain)))
 print "The accuracy is on the testing set is %f" %(accuracy_score(ytest, predict(theta,Xtest)))
 
