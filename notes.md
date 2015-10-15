@@ -26,3 +26,12 @@ conda env update -f environment.yml
 - Activate this new environment:
 source activate neural-network
 
+## Lasagne and theano
+
+pip install -r https://raw.githubusercontent.com/Lasagne/Lasagne/master/requirements.txt
+pip install https://github.com/Lasagne/Lasagne/archive/master.zip
+
+pip install clang
+
+
+
