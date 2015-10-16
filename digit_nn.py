@@ -41,7 +41,7 @@ def drawplot(draw):
                 ax[i, j].set_axis_off() # Turns off the axes for all the subplots
                 ax[i,j].imshow(Xi, aspect='auto',cmap='gray')
         plt.show()
-drawplot(False)
+drawplot(True)
 
 def sigmoid(z):
     return 1.0 / (1.0 + np.exp(-1 * z))

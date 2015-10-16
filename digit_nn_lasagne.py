@@ -80,14 +80,25 @@ def main(epochs=500):
     # Now we begin:
     for epoch in range(epochs):
         train_error = 0
-        train_batched = 0
+        train_batches = 0
         start_time = time.time()
         for batch in minibatches(Xtrain,ytrain,500,shuffle=True):
             inputs, outputs = batch
             train_err += train_fn(inputs, outputs)
             train_batches += 1
 
-        # todo continue from line 299 in tutorial
+        # Full pass over validation data
+        val_error = 0
+        val_batches = 0
+        val_acc = 0
+        for batch in minibatches(Xval,yval,500,shuffle=True) # todo There is no validation data set yet!
+            inputs, outputs = batch
+            err, acc = val_fn(inputs,outputs)
+            val_err += val_error
+            val_acc += val_acc
+            val_batches += val_batches
+
+        # todo continue from line 309
 
 
 
